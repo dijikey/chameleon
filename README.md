@@ -18,7 +18,7 @@ A powerful and flexible crate for creating dynamic themes for [Iced](https://git
 + + + > radio, tooltip, toggler, text_editor, themer, slider
 
 
-+[ ] **Add support for [egui](https://github.com/emilk/egui)**
++ [ ] **Add support for [egui](https://github.com/emilk/egui)**
 
 ## 🚀 Installation
 
