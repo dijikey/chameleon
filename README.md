@@ -9,7 +9,7 @@ A powerful and flexible crate for creating dynamic themes for [Iced](https://git
 - **Lua-Powered Theming**: Define your Iced application's visual style using simple and expressive Lua scripts.
 - **Hot-Reloading**: Change your application's theme on the fly without restarting.
 - **Separation of Concerns**: Keep your Rust business logic clean and your UI styling separate.
-- **Comprehensive Styling**: Style all core Iced widgets (`Button`, `TextInput`, `Slider`, `Container`, etc.).
+- **Comprehensive Styling**: Style all core Iced widgets (`Button`, `TextInput`, `Container`, etc.).
 - **Type-Safe Bridge**: Enjoy a safe interaction between Lua and Rust with proper error handling.
 
 ## ✅ Roadmap:
