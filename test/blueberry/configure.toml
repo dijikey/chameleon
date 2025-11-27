@@ -1,0 +1,3 @@
+[lua]
+module_folder = "lua/modules"
+modules = ["pallete","styles", "debug"]
