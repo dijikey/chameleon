@@ -1,5 +1,5 @@
 use crate::ex::misc::{Border, Color, Rounded, Shadow};
-use crate::iced_wrap;
+use crate::{iced_wrap, Chameleon};
 use iced::widget;
 use iced::widget::rule::FillMode;
 use mlua::{FromLua, Lua, Value};
@@ -7,10 +7,7 @@ use serde::Deserialize;
 
 pub(crate) mod misc;
 
-#[allow(dead_code)]
-pub trait Chameleon<T> {
-    fn morph(&self) -> T;
-}
+
 
 iced_wrap!(
     name: Appearance,

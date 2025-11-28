@@ -1,4 +1,4 @@
-use crate::ex::Chameleon;
+use crate::Chameleon;
 use crate::iced_impl;
 use crate::{Theme, lua_status};
 use iced::widget::{pane_grid, scrollable};

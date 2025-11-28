@@ -1,5 +1,5 @@
 use crate::ex::{
-    Appearance, Button, Chameleon, Container, PaneGrid, Rule, Scrollable, Svg, Text, TextInput,
+    Appearance, Button, Container, PaneGrid, Rule, Scrollable, Svg, Text, TextInput,
 };
 use anyhow::Ok;
 use iced::daemon::DefaultStyle;
@@ -84,6 +84,11 @@ struct Iced {
     pane_grid: Function,
     #[allow(dead_code)]
     lua: Lua,
+}
+
+#[allow(dead_code)]
+pub trait Chameleon<T> {
+    fn morph(&self) -> T;
 }
 
 impl Default for Theme {
