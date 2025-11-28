@@ -36,5 +36,5 @@ Add this project to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-chameleon-theme = "1.0.0"
+chameleon = {git="https://github.com/dijikey/chameleon"}
 ```
