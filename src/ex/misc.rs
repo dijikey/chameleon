@@ -25,10 +25,10 @@ impl FromLua for Color {
         };
 
         Ok(Self {
-            r: table.get::<f32>("r")?.clamp(0.0, 1.0),
-            g: table.get::<f32>("g")?.clamp(0.0, 1.0),
-            b: table.get::<f32>("b")?.clamp(0.0, 1.0),
-            a: table.get::<f32>("a")?.clamp(0.0, 1.0),
+            r: (table.get::<f32>("r")? / 255.0).clamp(0.0, 1.0),
+            g: (table.get::<f32>("g")? / 255.0).clamp(0.0, 1.0),
+            b: (table.get::<f32>("b")? / 255.0).clamp(0.0, 1.0),
+            a: (table.get::<f32>("a")? / 100.0).clamp(0.0, 1.0),
         })
     }
 }
