@@ -1,5 +1,5 @@
 use mlua::{Lua, Table};
-use std::path::{Path, PathBuf};
+use std::path::Path;
 
 pub const STYLE_FUNCTION: &str = "Style";
 pub const LUA_FOLDER: &str = "lua";

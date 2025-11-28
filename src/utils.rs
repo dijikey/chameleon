@@ -6,7 +6,7 @@ macro_rules! lua_getter {
     $(
         pub fn $i(&self$(,$id: $t)*) -> $rt {
 
-            return self.$i.call(($($id),*)).expect(stringify!($rt));
+            return self.inner.$i.call(($($id),*)).expect(stringify!($rt));
         }
     )+
     }

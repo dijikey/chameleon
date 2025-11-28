@@ -1,8 +1,11 @@
-use std::{path::Path, rc::Rc};
-
-use crate::ex::{Appearance, Button, Container, PaneGrid, Rule, Scrollable, Svg, Text, TextInput};
+use crate::ex::{
+    Appearance, Button, Chameleon, Container, PaneGrid, Rule, Scrollable, Svg, Text, TextInput,
+};
 use anyhow::Ok;
+use iced::daemon::DefaultStyle;
 use mlua::{Function, Lua};
+use std::path::Path;
+use std::sync::Arc;
 
 pub(crate) mod ex;
 mod impls;
@@ -22,17 +25,7 @@ const STATUS_FOCUSED: i8 = 6;
 
 #[derive(Clone, Debug)]
 pub struct Theme {
-    appearance: Function,
-    button: Function,
-    container: Function,
-    rule: Function,
-    scrollable: Function,
-    svg: Function,
-    text: Function,
-    text_input: Function,
-    pane_grid: Function,
-    #[allow(dead_code)]
-    lua: Rc<Lua>,
+    inner: Arc<Iced>,
 }
 
 impl Theme {
@@ -47,7 +40,7 @@ impl Theme {
             scripts: [appearance, button, container, rule, scrollable, svg, text, pane_grid, text_input]
         );
 
-        Ok(Self {
+        let container = Iced {
             appearance,
             button,
             container,
@@ -55,9 +48,13 @@ impl Theme {
             scrollable,
             svg,
             text,
-            pane_grid,
             text_input,
-            lua: Rc::new(lua),
+            pane_grid,
+            lua,
+        };
+
+        Ok(Self {
+            inner: Arc::from(container),
         })
     }
 
@@ -72,4 +69,31 @@ impl Theme {
         scrollable(status: i8) -> Scrollable,
         button(status: i8) -> Button
     ];
+}
+
+#[derive(Clone, Debug)]
+struct Iced {
+    appearance: Function,
+    button: Function,
+    container: Function,
+    rule: Function,
+    scrollable: Function,
+    svg: Function,
+    text: Function,
+    text_input: Function,
+    pane_grid: Function,
+    #[allow(dead_code)]
+    lua: Lua,
+}
+
+impl Default for Theme {
+    fn default() -> Theme {
+        panic!("Theme cannot create with default")
+    }
+}
+
+impl DefaultStyle for Theme {
+    fn default_style(&self) -> iced::application::Appearance {
+        self.appearance().morph()
+    }
 }
