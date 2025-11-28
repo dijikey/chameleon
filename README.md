@@ -12,6 +12,16 @@ A powerful and flexible crate for creating dynamic themes for [Iced](https://git
 - **Comprehensive Styling**: Style all core Iced widgets (`Button`, `TextInput`, `Container`, etc.).
 - **Type-Safe Bridge**: Enjoy a safe interaction between Lua and Rust with proper error handling.
 
+## Anatomy of an Theme pack
+Here is an example of what an addon could look like:
+```
+📂 Theme Title/
+    ├──📜 configure.toml
+    └── 📁 lua/
+        ├── button.lua
+        ├── etc..
+```
+
 ## ✅ Roadmap:
 - [x] **Add support for [Iced](https://github.com/iced-rs/iced)**
 + + Implementing the remaining widgets:
