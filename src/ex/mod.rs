@@ -5,7 +5,7 @@ use iced::widget::rule::FillMode;
 use mlua::{FromLua, Lua, Value};
 use serde::Deserialize;
 
-pub(crate) mod misc;
+pub mod misc;
 
 
 

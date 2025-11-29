@@ -2,11 +2,13 @@ use crate::ex::{
     Appearance, Button, Container, PaneGrid, Rule, Scrollable, Svg, Text, TextInput,
 };
 use anyhow::Ok;
-use iced::daemon::DefaultStyle;
 use mlua::{Function, Lua};
 use std::path::Path;
 use std::sync::Arc;
 
+#[cfg(feature = "inner-struct")]
+pub mod ex;
+#[cfg(not(feature = "inner-struct"))]
 pub(crate) mod ex;
 mod impls;
 pub(crate) mod lua;
@@ -70,7 +72,6 @@ impl Theme {
         button(status: i8) -> Button
     ];
 }
-
 #[derive(Clone, Debug)]
 struct Iced {
     appearance: Function,
@@ -89,16 +90,4 @@ struct Iced {
 #[allow(dead_code)]
 pub trait Chameleon<T> {
     fn morph(&self) -> T;
-}
-
-impl Default for Theme {
-    fn default() -> Theme {
-        panic!("Theme cannot create with default")
-    }
-}
-
-impl DefaultStyle for Theme {
-    fn default_style(&self) -> iced::application::Appearance {
-        self.appearance().morph()
-    }
 }
