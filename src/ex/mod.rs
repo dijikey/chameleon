@@ -13,7 +13,8 @@ iced_wrap!(
     name: Appearance,
     fields: {
         background: Color,
-        text_color: Color
+        text: Color,
+        primary: Color
     }
 );
 
@@ -21,7 +22,7 @@ impl Chameleon<iced::application::Appearance> for Appearance {
     fn morph(&self) -> iced::application::Appearance {
         iced::application::Appearance {
             background_color: self.background.morph(),
-            text_color: self.text_color.morph(),
+            text_color: self.text.morph(),
         }
     }
 }

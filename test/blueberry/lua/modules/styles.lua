@@ -79,7 +79,9 @@ style.appearance = function ()
 	--- @type Color
 	button.background = pallete.WHITE
 	--- @type Color
-    button.text_color = pallete.WHITE
+    button.text = pallete.WHITE
+    --- @type Color
+    button.primary = pallete.WHITE
 
 	return button
 end
